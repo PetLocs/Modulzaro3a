@@ -13,20 +13,26 @@ public class MindentTudoGep {
     private static final int T = 14;
     private int[] totoTomb = new int[T];
     
-    public MindentTudoGep(int mod){
-        getLotto();
-        //getToto();
-        //zene();
+    public MindentTudoGep(){
+        
     }
 
     public String getLotto() {
         lottoTombFeltoltes();
         duplikacioEllenorzes();
         rendezes();
-        for (int i = 0; i < lottoTomb.length; i++) {
-            this.lotto += lottoTomb[i] + ", ";
-        }
+        lottoStringbefuzes();
         return this.lotto;
+    }
+
+    private void lottoStringbefuzes() {
+        for (int i = 0; i < lottoTomb.length; i++) {
+            if (i == lottoTomb.length - 1) {
+                this.lotto += lottoTomb[i] + ".";
+            } else {
+                this.lotto += lottoTomb[i] + ", ";
+            }
+        }
     }
 
     private void rendezes() {
@@ -53,11 +59,33 @@ public class MindentTudoGep {
         return (int)(Math.random()*max + min);
     }
 
-    public void getToto() {
-        toto += "mérkőzések: ";
-        for (int i = 0; i < T; i++) {
-            toto+= i+1 + " ";
+    public String getToto() {
+        fejlec();
+        totoTombFeltoltes();
+        this.toto += "eredmények: ";
+        for (int i = 0; i < totoTomb.length; i++) {            
+            if (i == totoTomb.length - 1) {
+                this.toto += "   " + totoTomb[i] + " ";
+            }else if (i > 8 && i < totoTomb.length - 1) {
+                this.toto += " " + totoTomb[i] + " ";
+            }else{
+                this.toto += totoTomb[i] + " ";
+            }
         }
-        toto += "13+1";
+        return this.toto;
+    }
+
+    private void totoTombFeltoltes() {
+        for (int i = 0; i < totoTomb.length; i++) {
+            totoTomb[i] = rnd(1, 3);
+        }
+    }
+
+    private void fejlec() {
+        this.toto += "mérkőzések: ";
+        for (int i = 0; i < T-1; i++) {
+            this.toto+= i+1 + " ";
+        }
+        this.toto += "13+1\n";
     }
 }
