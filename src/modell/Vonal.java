@@ -9,12 +9,12 @@ public class Vonal {
    private int eltolas;
    private String szin;
    private String stilus;
-   private enum Szinek {PIROS, KEK, ZOLD};
-   private enum Stilusok {SZIMPLA, DUPLA, PONT};
-   private final String RESET_ANSI = "\u001b[0m";
-   private final String RED_ANSI = "\u001b[31m";
-   private final String GREEN_ANSI = "\u001b[32m";
-   private final String BLUE_ANSI = "\u001b[34m";
+   public enum Szinek {PIROS, KEK, ZOLD};
+   public enum Stilusok {SZIMPLA, DUPLA, PONT};
+   private static final String RESET_ANSI = "\u001b[0m";
+   private static final String RED_ANSI = "\u001b[31m";
+   private static final String GREEN_ANSI = "\u001b[32m";
+   private static final String BLUE_ANSI = "\u001b[34m";
    private final char SZIMPLA = '-';
    private final char DUPLA = '=';
    private final char PONT = '.';
@@ -67,6 +67,9 @@ public class Vonal {
             }
         }
         this.eltolas = eltolas;
+        for (int i = 0; i <eltolas; i++) {
+            megjelenes += " ";
+        }
     }
     
     public String getSzin(){
