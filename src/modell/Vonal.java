@@ -11,9 +11,10 @@ public class Vonal {
    private String stilus;
    private enum Szinek {PIROS, KEK, ZOLD};
    private enum Stilusok {SZIMPLA, DUPLA, PONT};
-   private final String RED_ANSI = "\\u001b[31m";
-   private final String GREEN_ANSI = "\\u001b[32m";
-   private final String BLUE_ANSI = "\\u001b[34m";
+   private final String RESET_ANSI = "\u001b[0m";
+   private final String RED_ANSI = "\u001b[31m";
+   private final String GREEN_ANSI = "\u001b[32m";
+   private final String BLUE_ANSI = "\u001b[34m";
    private final char SZIMPLA = '-';
    private final char DUPLA = '=';
    private final char PONT = '.';
@@ -105,16 +106,19 @@ public class Vonal {
                 for (int i = 0; i < this.hossz; i++) {
                     megjelenes += SZIMPLA;
                 }
+                megjelenes += RESET_ANSI;
                 break;
             case DUPLA:
                 for (int i = 0; i < this.hossz; i++) {
                     megjelenes += DUPLA;
                 }
+                megjelenes += RESET_ANSI;
                 break;
             case PONT:
                 for (int i = 0; i < this.hossz; i++) {
                     megjelenes += PONT;
                 }
+                megjelenes += RESET_ANSI;
                 break;
             default:
                 {
@@ -125,5 +129,9 @@ public class Vonal {
                 }
             }
         }
+    }
+    
+    public String getMegjelenes(){
+        return this.megjelenes;
     }
 }
