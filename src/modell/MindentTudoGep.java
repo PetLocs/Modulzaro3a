@@ -65,11 +65,11 @@ public class MindentTudoGep {
         this.toto += "eredmények: ";
         for (int i = 0; i < totoTomb.length; i++) {            
             if (i == totoTomb.length - 1) {
-                this.toto += "   " + totoTomb[i] + " ";
+                this.toto += "   " + xreModosit(totoTomb[i]) + " ";
             }else if (i > 8 && i < totoTomb.length - 1) {
-                this.toto += " " + totoTomb[i] + " ";
+                this.toto += " " + xreModosit(totoTomb[i]) + " ";
             }else{
-                this.toto += totoTomb[i] + " ";
+                this.toto += xreModosit(totoTomb[i]) + " ";
             }
         }
         return this.toto;
@@ -87,5 +87,13 @@ public class MindentTudoGep {
             this.toto+= i+1 + " ";
         }
         this.toto += "13+1\n";
+    }
+    
+    private String xreModosit(int szam){
+        if (szam == 3) {
+            return "X";
+        }else{
+            return String.valueOf(szam);
+        }
     }
 }
