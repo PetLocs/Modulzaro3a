@@ -17,7 +17,7 @@ public class Vonal {
    private final char SZIMPLA = '-';
    private final char DUPLA = '=';
    private final char PONT = '.';
-   private final String EXP = "Egy vonal nem jött létre, mert nem létező a hossz!";
+   private final String EXP = "Egy vonal nem jött létre, mert nem létező a hossz!";   
     
     public Vonal(int hossz) {        
         this(hossz, 0, Szinek.KEK, Stilusok.SZIMPLA);        
@@ -29,6 +29,13 @@ public class Vonal {
         this(hossz, eltolas, szin, Stilusok.SZIMPLA);
     }
     public Vonal(int hossz, int eltolas, Szinek szin, Stilusok stilus) {
+        setHossz(hossz);
+        setEltolas(eltolas);
+        this.szin = szin.name();
+        this.stilus = stilus.name();
+    }
+    
+    private void setHossz(int hossz){
         if (hossz < 1) {
             try {
                 throw new Exception(EXP);
@@ -37,11 +44,24 @@ public class Vonal {
             }
         }
         this.hossz = hossz;
-        this.eltolas = eltolas;
-        this.szin = szin.name();
-        this.stilus = stilus.name();
     }
-
     
+    public int getEltolas(){
+        return this.eltolas;
+    }
     
+    public void setEltolas(int eltolas){
+        if (eltolas < 0) {
+            eltolas = 0;
+        }
+        this.eltolas = eltolas;
+    }
+    
+    public String getSzin(){
+        return this.szin;
+    }
+    
+    public String getStilus(){
+        return this.stilus;
+    }
 }
