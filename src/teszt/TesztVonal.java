@@ -5,7 +5,7 @@ import modell.Vonal;
 
 public class TesztVonal {
     public static void main(String[] args) {
-        tesztesetek();
+        tesztesetek();        
     }
 
     private static void tesztesetek() {

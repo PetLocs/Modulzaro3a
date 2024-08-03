@@ -12,6 +12,7 @@ public class MindentTudoGep {
     private int[] lottoTomb = new int[L];
     private static final int T = 14;
     private int[] totoTomb = new int[T];
+    private String[] zenek = new String[] {"Deep Purple - Smoke On The Water", "Celine Dion - My Hearth Will Go On", "Sub Bass Monster - Négyütem", "Tom Jones - It's Not Unusual", "Új..."};
     
     public MindentTudoGep(){
         
@@ -62,6 +63,11 @@ public class MindentTudoGep {
     public String getToto() {
         fejlec();
         totoTombFeltoltes();
+        lablec();
+        return this.toto;
+    }
+
+    private void lablec() {
         this.toto += "eredmények: ";
         for (int i = 0; i < totoTomb.length; i++) {            
             if (i == totoTomb.length - 1) {
@@ -72,7 +78,6 @@ public class MindentTudoGep {
                 this.toto += xreModosit(totoTomb[i]) + " ";
             }
         }
-        return this.toto;
     }
 
     private void totoTombFeltoltes() {
@@ -96,4 +101,13 @@ public class MindentTudoGep {
             return String.valueOf(szam);
         }
     }
+
+    public String getZeneCim() {
+        for (int i = 0; i < zenek.length; i++) {
+            zeneCim += zenek[i] + "\n";
+        }
+        return this.zeneCim;
+    }
+    
+    
 }
