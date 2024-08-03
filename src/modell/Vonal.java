@@ -1,8 +1,11 @@
 package modell;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 public class Vonal {
 
-   private int hossz;
+   private int hossz = 1;
    private int eltolas;
    private String szin;
    private String stilus;
@@ -14,9 +17,10 @@ public class Vonal {
    private final char SZIMPLA = '-';
    private final char DUPLA = '=';
    private final char PONT = '.';
+   private final String EXP = "Egy vonal nem jött létre, mert nem létező a hossz!";
     
     public Vonal(int hossz) {        
-        this(hossz, 0, Szinek.KEK, Stilusok.SZIMPLA);
+        this(hossz, 0, Szinek.KEK, Stilusok.SZIMPLA);        
     }
     public Vonal(int hossz, int eltolas) {
         this(hossz, eltolas, Szinek.KEK, Stilusok.SZIMPLA);
@@ -25,6 +29,13 @@ public class Vonal {
         this(hossz, eltolas, szin, Stilusok.SZIMPLA);
     }
     public Vonal(int hossz, int eltolas, Szinek szin, Stilusok stilus) {
+        if (hossz < 1) {
+            try {
+                throw new Exception(EXP);
+            } catch (Exception ex) {
+                Logger.getLogger(Vonal.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
         this.hossz = hossz;
         this.eltolas = eltolas;
         this.szin = szin.name();
